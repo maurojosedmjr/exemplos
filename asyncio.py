@@ -10,6 +10,8 @@ async def exec_callable(loop: asyncio.get_event_loop, map_exec: Dict):
     for value in map_exec.values():
         result.append(loop.run_in_executor(None, value[0], value[1]))
         print(result)
+    for response in await asyncio.gather(*result):
+        pass
     return result
 
 map_execs = {
