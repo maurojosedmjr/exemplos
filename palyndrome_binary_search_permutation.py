@@ -1,4 +1,5 @@
 from typing import List
+from collections import defaultdict
 
 
 def is_palyndrome(string: str) -> bool:
@@ -61,3 +62,33 @@ assert search_binary([1], None) == -1
 assert search_binary([1], -1) == -1
 
 assert search_binary([-1], -1) == 0
+
+
+def is_permutation(string1: str, string2) -> bool:
+    # if equal, is not permutation
+    if len(string1) != len(string2) or string1 == string2:
+        return False
+
+    map_string = defaultdict(int)
+
+    for ch in string1:
+        map_string[ch] += 1
+
+    for ch in string2:
+        map_string[ch] -= 1
+
+    for key in map_string.keys():
+        if map_string[key] != 0:
+            return False
+
+    return True
+
+
+assert is_permutation("ana", "ana") is False
+
+assert is_permutation("aana", "ana") is False
+
+assert is_permutation("mala", "nala") is False
+
+assert is_permutation("lana", "nala") is True
+
