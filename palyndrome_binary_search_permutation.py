@@ -64,7 +64,7 @@ assert search_binary([1], -1) == -1
 assert search_binary([-1], -1) == 0
 
 
-def is_permutation(string1: str, string2) -> bool:
+def is_permutation(string1: str, string2: str) -> bool:
     # if equal, is not permutation
     if len(string1) != len(string2) or string1 == string2:
         return False
