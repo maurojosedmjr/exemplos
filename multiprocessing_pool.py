@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import List
 
 RRANGE: range = range(10, 0, -1)
+MAX_POOL: int = 4
 
 
 def wait(seconds: int = 5) -> str:
@@ -14,7 +15,7 @@ def wait(seconds: int = 5) -> str:
 
 
 def do_it_with_threads() -> List[str]:
-    pool = ThreadPool(4)
+    pool = ThreadPool(MAX_POOL)
     results: List[str] = []
     for i in RRANGE:
         results.append(pool.apply_async(wait, (i,)))
