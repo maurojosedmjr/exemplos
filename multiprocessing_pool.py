@@ -23,7 +23,7 @@ def do_it_with_threads() -> List[str]:
     return [r.get() for r in results]
 
 
-def do_it_without_threads() -> None:
+def do_it_without_threads() -> List[str]:
     results: List[str] = []
     for i in RRANGE:
         results.append(wait(i))
